@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.BasicInfoFragment">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="677dp">
+
+
+        <TextView
+            android:id="@+id/myResume"
+            android:layout_width="414dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="我的简历"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/basicInfoBtn"
+            android:layout_width="418dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="基本信息"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/myResume" />
+
+        <TextView
+            android:id="@+id/basicInfo"
+            android:layout_width="416dp"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/basicInfoBtn" />
+
+        <TextView
+            android:id="@+id/workExpBtn"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="工作经验"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/basicInfo" />
+
+        <TextView
+            android:id="@+id/workExp"
+            android:layout_width="419dp"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/workExpBtn" />
+
+        <TextView
+            android:id="@+id/eduExpBtn"
+            android:layout_width="410dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="教育经历"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/workExp" />
+
+        <TextView
+            android:id="@+id/eduExp"
+            android:layout_width="412dp"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eduExpBtn" />
+
+        <TextView
+            android:id="@+id/posItnBtn"
+            android:layout_width="413dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="求职意向"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eduExp" />
+
+        <TextView
+            android:id="@+id/posItn"
+            android:layout_width="418dp"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/posItnBtn" />
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

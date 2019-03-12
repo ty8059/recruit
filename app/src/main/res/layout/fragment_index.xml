@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.IndexFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="677dp">
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="378dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/resumeBtn"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:background="#e0000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/resume"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+        <ImageButton
+            android:id="@+id/applicationrecordBtn"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="24dp"
+            android:background="#e0000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/applicationrecord"
+            app:layout_constraintStart_toEndOf="@+id/resumeBtn"
+            app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+        <ImageButton
+            android:id="@+id/invitationBtn"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="24dp"
+            android:background="#e0000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/invivation"
+            app:layout_constraintStart_toEndOf="@+id/applicationrecordBtn"
+            app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="19dp"
+            android:background="#e0000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/remind"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/invitationBtn"
+            app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="9dp"
+            android:text="我的简历"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resumeBtn" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="9dp"
+            android:text="申请记录"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/applicationrecordBtn" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="9dp"
+            android:text="邀请信息"
+            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/invitationBtn" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="9dp"
+            android:text="温馨提醒"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
+
+        <ListView
+            android:id="@+id/hotBus"
+            android:layout_width="395dp"
+            android:layout_height="466dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

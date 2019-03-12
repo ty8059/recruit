@@ -1,17 +1,23 @@
 package com.admn.recruit.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
+import com.admn.recruit.R;
 import com.admn.recruit.fragment.DataFragment;
 import com.admn.recruit.fragment.DeviceFragment;
 import com.admn.recruit.fragment.UploadFragment;
+import com.admn.recruit.service.LoginService;
+import com.admn.recruit.service.impl.LoginServiceImpl;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
-import com.admn.recruit.R;
 
 public class IndexActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener {
 
@@ -20,6 +26,9 @@ public class IndexActivity extends AppCompatActivity implements BottomNavigation
     private UploadFragment uploadFragment;
     private DataFragment dataFragment;
     private DeviceFragment deviceFragment;
+
+    private LoginService loginService = new LoginServiceImpl();
+
 
     @Override
     protected void onStart() {
@@ -31,9 +40,9 @@ public class IndexActivity extends AppCompatActivity implements BottomNavigation
         bottomNavigationBar.setTabSelectedListener(this)
                 .setMode(BottomNavigationBar.MODE_DEFAULT)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_DEFAULT)
-                .setActiveColor("#FF107FFD") //选中颜色
-                .setInActiveColor("#e9e6e6") //未选中颜色
-                .setBarBackgroundColor("#1ccbae");//导航栏背景色
+                .setActiveColor("#FFFFFF") //选中颜色
+                .setInActiveColor("#DBDBDB") //未选中颜色
+                .setBarBackgroundColor("#f0ffff");//导航栏背景色
         bottomNavigationBar
                 .addItem(new BottomNavigationItem(R.drawable.ic_upload_64px, "上传"))
                 .addItem(new BottomNavigationItem(R.drawable.ic_upload_64px, "查看"))
@@ -60,6 +69,7 @@ public class IndexActivity extends AppCompatActivity implements BottomNavigation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index);
         setBottomNavigationBar();
+        loginService.login("king", "111");
     }
 
 
@@ -78,6 +88,7 @@ public class IndexActivity extends AppCompatActivity implements BottomNavigation
                 } else {
                     transaction.show(uploadFragment);
                 }
+                dialog();
                 break;
             case 1:
                 if (dataFragment == null) {
@@ -113,6 +124,32 @@ public class IndexActivity extends AppCompatActivity implements BottomNavigation
         }
     }
 
+    private void dialog(
+
+    ) {
+        AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(IndexActivity.this);
+        builder.setTitle("请回答");
+        builder.setMessage("你觉得我好看吗？？");
+        builder.setPositiveButton("当然是好看了！！", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(IndexActivity.this, "嘻嘻嘻", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNeutralButton("我觉得一般", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(IndexActivity.this,"那你再瞅瞅~",Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("我觉得不好看", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(IndexActivity.this,"嘤嘤嘤",Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.show();
+    }
 
     @Override
     public void onTabUnselected(int position) {
@@ -125,3 +162,6 @@ public class IndexActivity extends AppCompatActivity implements BottomNavigation
     }
 
 }
+
+
+

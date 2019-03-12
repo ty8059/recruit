@@ -3,6 +3,10 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.admn.recruit">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <dist:module dist:instant="true" />
 
     <application
@@ -12,6 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.BasicInfoActivity"></activity>
+        <activity
+            android:name=".activity.SetupActivity"
+            android:label="@string/title_activity_setup"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.IndexActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
