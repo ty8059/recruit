@@ -20,35 +20,35 @@
             android:text="我的"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/setBtn"
+            app:layout_constraintBottom_toTopOf="@+id/btn_set"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread_inside" />
 
         <Button
-            android:id="@+id/setBtn"
-            android:layout_width="415dp"
-            android:layout_height="83dp"
+            android:id="@+id/btn_set"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:gravity="left|center_vertical"
+            android:gravity="center_horizontal|center_vertical"
             android:text="修改密码"
-            android:textSize="40dp"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <Button
-            android:id="@+id/button2"
-            android:layout_width="415dp"
-            android:layout_height="83dp"
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/colorAccent"
-            android:gravity="left|center_vertical"
+            android:gravity="center_horizontal|center_vertical"
             android:text="退出登录"
-            android:textSize="40dp"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/setBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_set" />
     </android.support.constraint.ConstraintLayout>
 
 </FrameLayout>

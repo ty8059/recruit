@@ -4,30 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".basicInfo.BasicInfoActivity">
-
+    tools:context=".workexp.WorkExpEditActivity">
     <TextView
-        android:id="@+id/tv_basic_info"
+        android:id="@+id/tv_work_exp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="基本信息"
+        android:text="添加工作经验"
         android:gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_name"
+        android:id="@+id/tv_start_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="姓名"
+        android:text="开始时间"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_basic_info" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_exp" />
 
     <EditText
-        android:id="@+id/et_name"
+        android:id="@+id/et_start_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -37,19 +36,19 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_basic_info" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_exp" />
 
     <TextView
-        android:id="@+id/tv_sex"
+        android:id="@+id/tv_terminal_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="性别"
+        android:text="结束时间"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_name" />
+        app:layout_constraintTop_toBottomOf="@+id/et_start_time" />
 
     <EditText
-        android:id="@+id/et_sex"
+        android:id="@+id/et_terminal_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -58,19 +57,19 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_name" />
+        app:layout_constraintTop_toBottomOf="@+id/et_start_time" />
 
     <TextView
-        android:id="@+id/tv_birthday"
+        android:id="@+id/tv_company"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="出生日期"
+        android:text="公司"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_sex" />
+        app:layout_constraintTop_toBottomOf="@+id/et_terminal_time" />
 
     <EditText
-        android:id="@+id/et_birthday"
+        android:id="@+id/et_company"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -79,19 +78,19 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_sex" />
+        app:layout_constraintTop_toBottomOf="@+id/et_terminal_time" />
 
     <TextView
-        android:id="@+id/tv_tel"
+        android:id="@+id/tv_job"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="手机号码"
+        android:text="职位"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_birthday" />
+        app:layout_constraintTop_toBottomOf="@+id/et_company" />
 
     <EditText
-        android:id="@+id/et_tel"
+        android:id="@+id/et_job"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -100,19 +99,19 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_birthday" />
+        app:layout_constraintTop_toBottomOf="@+id/et_company" />
 
     <TextView
-        android:id="@+id/tv_address"
+        android:id="@+id/tv_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="居住地"
+        android:text="描述"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_tel" />
+        app:layout_constraintTop_toBottomOf="@+id/et_job" />
 
     <EditText
-        android:id="@+id/et_address"
+        android:id="@+id/et_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -120,26 +119,6 @@
         android:text=""
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_tel" />
+        app:layout_constraintTop_toBottomOf="@+id/et_job" />
 
-    <TextView
-        android:id="@+id/tv_marital"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="婚姻状况"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_address" />
-
-    <EditText
-        android:id="@+id/et_marital"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_address" />
 </android.support.constraint.ConstraintLayout>

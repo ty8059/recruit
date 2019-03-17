@@ -16,12 +16,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.BasicInfoActivity"></activity>
+        <activity android:name=".invitation.InvitationActivity"></activity>
+        <activity android:name=".applicationrecord.ApplicationRecordActivity" />
+        <activity android:name=".remind.RemindActivity" />
+        <activity android:name=".aboutus.AboutUsActivity" />
+        <activity android:name=".target.TargetActivity" />
+        <activity android:name=".eduexp.EduExpEditActivity" />
+        <activity android:name=".eduexp.EduExpActivity" />
+        <activity android:name=".workexp.WorkExpEditActivity" />
+        <activity android:name=".workexp.WorkExpActivity" />
+        <activity android:name=".index.IndexActivity" />
+        <activity android:name=".basicInfo.BasicInfoActivity" />
         <activity
-            android:name=".activity.SetupActivity"
-            android:label="@string/title_activity_setup"
+            android:name=".setup.SetupActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.IndexActivity">
+        <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

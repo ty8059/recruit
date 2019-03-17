@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tv_position_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="职位暂无"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_position_work_type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tv_position_salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:text="薪水暂无"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_position_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_position_name"
+        app:layout_constraintTop_toTopOf="@+id/tv_position_name"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_position_work_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="工作类型暂无"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_position_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_position_name" />
+
+    <TextView
+        android:id="@+id/tv_position_is_passed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="待审核"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_position_salary"
+        app:layout_constraintTop_toBottomOf="@+id/tv_position_salary" />
+
+
+</android.support.constraint.ConstraintLayout>
