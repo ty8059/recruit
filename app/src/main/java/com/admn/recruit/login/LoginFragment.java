@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.admn.recruit.R;
 import com.admn.recruit.index.IndexActivity;
+import com.admn.recruit.register.RegisterActivity;
 
 
 public class LoginFragment extends Fragment implements ILoginView{
@@ -24,6 +25,7 @@ public class LoginFragment extends Fragment implements ILoginView{
     private EditText usernameET;
     private EditText passwordET;
     private Button loginBtn;
+    private Button registerBtn;
 
     private LoginPresenter loginPresenter;
 
@@ -53,6 +55,15 @@ public class LoginFragment extends Fragment implements ILoginView{
             }
         });
 
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //执行注册操作
+                Intent intent = new Intent(getActivity(), RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void initView() {
@@ -60,6 +71,7 @@ public class LoginFragment extends Fragment implements ILoginView{
         usernameET = view.findViewById(R.id.username_et);
         passwordET = view.findViewById(R.id.password_et);
         loginBtn = view.findViewById(R.id.login_btn);
+        registerBtn = view.findViewById(R.id.btn_register);
     }
 
     @Override

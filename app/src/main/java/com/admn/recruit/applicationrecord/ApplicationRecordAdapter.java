@@ -46,9 +46,30 @@ public class ApplicationRecordAdapter extends ArrayAdapter<ApplicationRecord> {
         } else {
             viewHolder.positionSalary.setText(String.valueOf(record.getPositionSalary()) + " / 日");
         }
+
+
+        if (record.getPositionIsPassed().equals(Constants.AUDITING_STATE.PASSED)) {
+            viewHolder.positionIsPassed.setText("已通过");
+        }
+        else if (record.getPositionIsPassed().equals(Constants.AUDITING_STATE.FAILED)) {
+            viewHolder.positionIsPassed.setText("未通过");
+        }
+        else {
+            viewHolder.positionIsPassed.setText("待审核");
+        }
+
+
+        if (record.getPositionWorkType().equals(Constants.WORK_TYPE.FULL_TIME)) {
+            viewHolder.positionWorkType.setText("全职");
+        }
+        else if (record.getPositionWorkType().equals(Constants.WORK_TYPE.PART_TIME)) {
+            viewHolder.positionWorkType.setText("兼职");
+        }
+        else {
+            viewHolder.positionWorkType.setText("实习");
+        }
+
         viewHolder.positionName.setText(record.getPositionName());
-        viewHolder.positionWorkType.setText(record.getPositionWorkType());
-        viewHolder.positionIsPassed.setText(record.getPositionIsPassed());
 
 
         return convertView;

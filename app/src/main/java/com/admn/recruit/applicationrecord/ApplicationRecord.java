@@ -8,8 +8,10 @@ public class ApplicationRecord implements Serializable {
 
     private Long positionSalary;
 
+    // 00=全职 01=兼职 02=实习
     private String positionWorkType;
 
+    // 00=已通过 01=未通过 02=待审核
     private String positionIsPassed;
 
     // 00=月薪 01=日薪

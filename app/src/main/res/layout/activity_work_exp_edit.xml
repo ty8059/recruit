@@ -29,14 +29,14 @@
         android:id="@+id/et_start_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_work_exp" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_start_time" />
 
     <TextView
         android:id="@+id/tv_terminal_time"
@@ -56,8 +56,9 @@
         android:text=""
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_start_time" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_terminal_time" />
 
     <TextView
         android:id="@+id/tv_company"
@@ -77,8 +78,9 @@
         android:text=""
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_terminal_time" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_company" />
 
     <TextView
         android:id="@+id/tv_job"
@@ -98,8 +100,9 @@
         android:text=""
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_company" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_job" />
 
     <TextView
         android:id="@+id/tv_description"
@@ -119,6 +122,6 @@
         android:text=""
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_job" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_description" />
 
 </android.support.constraint.ConstraintLayout>

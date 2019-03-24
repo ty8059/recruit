@@ -1,5 +1,6 @@
 package com.admn.recruit.applicationrecord;
 
+import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -34,8 +35,8 @@ public class ApplicationRecordActivity extends AppCompatActivity {
 
         record1.setPositionName("IT工程师");
         record1.setPositionSalary(10000L);
-        record1.setPositionWorkType("全职");
-        record1.setPositionIsPassed("已通过");
+        record1.setPositionWorkType(Constants.WORK_TYPE.FULL_TIME);
+        record1.setPositionIsPassed(Constants.AUDITING_STATE.PASSED);
         record1.setSalaryType(Constants.SALARY_TYPE.MONTH);
 
         recordList.add(record1);
@@ -44,8 +45,8 @@ public class ApplicationRecordActivity extends AppCompatActivity {
 
         record1.setPositionName(".NET工程师");
         record1.setPositionSalary(100L);
-        record1.setPositionWorkType("实习");
-        record1.setPositionIsPassed("待处理");
+        record1.setPositionWorkType(Constants.WORK_TYPE.PRACTICE);
+        record1.setPositionIsPassed(Constants.AUDITING_STATE.PROCESSING);
         record1.setSalaryType(Constants.SALARY_TYPE.DAY);
 
         recordList.add(record1);

@@ -1,4 +1,4 @@
-package com.admn.recruit.login;
+package com.admn.recruit.register;
 
 import com.admn.recruit.model.User;
 import com.admn.recruit.util.RetrofitUtil;
@@ -8,32 +8,35 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginPresenter {
-    private ILoginView loginView;
+public class RegisterPresenter {
+
+    private IRegisterView registerView;
+
     private String baseUrl = "http://192.168.199.75:8080/";
 
-    public LoginPresenter(ILoginView loginView) {
+
+    public RegisterPresenter(IRegisterView registerView) {
         super();
-        this.loginView = loginView;
+        this.registerView = registerView;
     }
 
-    public ILoginView getiLoginView() {
-        return this.loginView;
+    public IRegisterView getiRegisterView() {
+        return this.registerView;
     }
 
-    public void setiLoginView(ILoginView loginView) {
-        this.loginView = loginView;
+    public void setiRegisterView(IRegisterView registerView) {
+        this.registerView = registerView;
     }
 
-    public void doLogin(String username, String password) {
+    public void doRegister(String username, String password, String userPhone) {
         RetrofitUtil retrofitUtil = RetrofitUtil.getInstance();
-        LoginRepository loginService = retrofitUtil.createApi(baseUrl, LoginRepository.class);
+        RegisterRepository registerService = retrofitUtil.createApi(baseUrl, RegisterRepository.class);
 
-        Call<LoginBean> call = loginService.login(username, password);
-        call.enqueue(new Callback<LoginBean>() {
+        Call<RegisterBean> call = registerService.register(username, password, userPhone);
+        call.enqueue(new Callback<RegisterBean>() {
 
             @Override
-            public void onResponse(Call<LoginBean> call, Response<LoginBean> response) {
+            public void onResponse(Call<RegisterBean> call, Response<RegisterBean> response) {
                 boolean success = response.body().isSuccess();
                 String msg = response.body().getMsg();
                 Object obj = response.body().getObj();
@@ -44,18 +47,21 @@ public class LoginPresenter {
 
                 if (success) {
                     // TODO 登录功能未屏蔽，待恢复
-                    loginView.showMsg(msg);
-                    loginView.jumpActivity();
+                    registerView.showMsg(msg);
+                    registerView.jumpActivity();
                 } else {
-                    loginView.showMsg(msg);
+                    registerView.showMsg(msg);
                 }
             }
 
             @Override
-            public void onFailure(Call<LoginBean> call, Throwable throwable) {
+            public void onFailure(Call<RegisterBean> call, Throwable throwable) {
                 System.out.println("连接失败");
             }
         });
     }
+
+
+
 
 }
