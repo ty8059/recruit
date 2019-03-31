@@ -1,6 +1,7 @@
 package com.admn.recruit.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,10 +16,11 @@ import android.widget.Toast;
 
 import com.admn.recruit.R;
 import com.admn.recruit.index.IndexActivity;
+import com.admn.recruit.model.User;
 import com.admn.recruit.register.RegisterActivity;
 
 
-public class LoginFragment extends Fragment implements ILoginView{
+public class LoginFragment extends Fragment implements LoginView {
 
     private View view;
     private ProgressBar progressBar;
@@ -103,5 +105,13 @@ public class LoginFragment extends Fragment implements ILoginView{
     @Override
     public boolean back() {
         return false;
+    }
+
+    @Override
+    public void setUserId(User user) {
+        SharedPreferences userSetting = getActivity().getSharedPreferences("user", 0);
+        SharedPreferences.Editor editor = userSetting.edit();
+        editor.putInt("userId", user.getUserId());
+        editor.commit();
     }
 }

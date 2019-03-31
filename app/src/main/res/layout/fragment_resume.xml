@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".index.ResumeFragment">
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="677dp">
+        android:layout_height="match_parent">
 
 
         <TextView
@@ -24,11 +25,12 @@
             android:id="@+id/btn_basic_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:clickable="true"
-            android:textSize="30dp"
-            android:text="基本信息"
+            android:layout_marginTop="131dp"
             android:background="#FFBBFF"
+            android:clickable="true"
+            android:text="基本信息"
+            android:textAlignment="center"
+            android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_my_resume" />
@@ -37,9 +39,9 @@
             android:id="@+id/btn_work_exp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="51dp"
             android:background="#FFE1FF"
             android:text="工作经验"
+            android:textAlignment="center"
             android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,10 +50,10 @@
         <TextView
             android:id="@+id/btn_edu_exp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="51dp"
+            android:layout_height="37dp"
             android:background="#FFBBFF"
             android:text="教育经历"
+            android:textAlignment="center"
             android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,9 +63,9 @@
             android:id="@+id/btn_target"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
             android:background="#FFE1FF"
             android:text="求职意向"
+            android:textAlignment="center"
             android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

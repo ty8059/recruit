@@ -22,7 +22,7 @@ import com.admn.recruit.applicationrecord.ApplicationRecordActivity;
 import com.admn.recruit.invitation.InvitationActivity;
 import com.admn.recruit.remind.RemindActivity;
 
-public class IndexFragment extends Fragment implements IIndexView, View.OnClickListener {
+public class IndexFragment extends Fragment implements IndexView, View.OnClickListener {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";

@@ -1,8 +1,7 @@
 package com.admn.recruit.applicationrecord;
 
-import android.provider.SyncStateContract;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.admn.recruit.R;

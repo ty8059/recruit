@@ -12,9 +12,6 @@ public class RegisterPresenter {
 
     private IRegisterView registerView;
 
-    private String baseUrl = "http://192.168.199.75:8080/";
-
-
     public RegisterPresenter(IRegisterView registerView) {
         super();
         this.registerView = registerView;
@@ -30,7 +27,7 @@ public class RegisterPresenter {
 
     public void doRegister(String username, String password, String userPhone) {
         RetrofitUtil retrofitUtil = RetrofitUtil.getInstance();
-        RegisterRepository registerService = retrofitUtil.createApi(baseUrl, RegisterRepository.class);
+        RegisterRepository registerService = retrofitUtil.createApi(RegisterRepository.class);
 
         Call<RegisterBean> call = registerService.register(username, password, userPhone);
         call.enqueue(new Callback<RegisterBean>() {

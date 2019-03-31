@@ -9,25 +9,24 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginPresenter {
-    private ILoginView loginView;
-    private String baseUrl = "http://192.168.199.75:8080/";
 
-    public LoginPresenter(ILoginView loginView) {
-        super();
+    private LoginView loginView;
+
+    public LoginPresenter(LoginView loginView) {
         this.loginView = loginView;
     }
 
-    public ILoginView getiLoginView() {
+    public LoginView getiLoginView() {
         return this.loginView;
     }
 
-    public void setiLoginView(ILoginView loginView) {
+    public void setiLoginView(LoginView loginView) {
         this.loginView = loginView;
     }
 
     public void doLogin(String username, String password) {
         RetrofitUtil retrofitUtil = RetrofitUtil.getInstance();
-        LoginRepository loginService = retrofitUtil.createApi(baseUrl, LoginRepository.class);
+        LoginRepository loginService = retrofitUtil.createApi(LoginRepository.class);
 
         Call<LoginBean> call = loginService.login(username, password);
         call.enqueue(new Callback<LoginBean>() {
@@ -45,6 +44,7 @@ public class LoginPresenter {
                 if (success) {
                     // TODO 登录功能未屏蔽，待恢复
                     loginView.showMsg(msg);
+                    loginView.setUserId(user);
                     loginView.jumpActivity();
                 } else {
                     loginView.showMsg(msg);
@@ -53,7 +53,7 @@ public class LoginPresenter {
 
             @Override
             public void onFailure(Call<LoginBean> call, Throwable throwable) {
-                System.out.println("连接失败");
+                loginView.showMsg("连接失败");
             }
         });
     }

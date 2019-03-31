@@ -1,23 +1,17 @@
-package com.admn.recruit.applicationrecord;
+package com.admn.recruit.index;
 
 import java.io.Serializable;
 
-public class ApplicationRecord implements Serializable {
+public class Position implements Serializable {
 
     private String positionName;
 
     private Long positionSalary;
 
-
     /**
      * 00=全职 01=兼职 02=实习
      */
     private String positionWorkType;
-
-    /**
-     * 00=已通过 01=未通过 02=待审核
-     */
-    private String positionIsPassed;
 
     /**
      * 00=月薪 01=日薪
@@ -48,13 +42,6 @@ public class ApplicationRecord implements Serializable {
         this.positionWorkType = positionWorkType;
     }
 
-    public String getPositionIsPassed() {
-        return positionIsPassed;
-    }
-
-    public void setPositionIsPassed(String positionIsPassed) {
-        this.positionIsPassed = positionIsPassed;
-    }
 
     public String getSalaryType() {
         return salaryType;
@@ -70,7 +57,6 @@ public class ApplicationRecord implements Serializable {
                 "positionName='" + positionName + '\'' +
                 ", positionSalary=" + positionSalary +
                 ", positionWorkType='" + positionWorkType + '\'' +
-                ", positionIsPassed='" + positionIsPassed + '\'' +
                 ", salaryType='" + salaryType + '\'' +
                 '}';
     }

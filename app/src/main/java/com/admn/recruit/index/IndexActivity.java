@@ -14,6 +14,7 @@ public class IndexActivity extends AppCompatActivity implements BottomNavigation
     private FragmentTransaction transaction;
     private IndexFragment indexFragment;
     private ResumeFragment resumeFragment;
+    private PositionFragment positionFragment;
 
     @Override
     protected void onStart() {
@@ -72,6 +73,16 @@ public class IndexActivity extends AppCompatActivity implements BottomNavigation
                     transaction.show(indexFragment);
                 }
                 break;
+
+            case 1:
+                if (positionFragment == null) {
+                    positionFragment = PositionFragment.newInstance("岗位", "");
+                    transaction.add(R.id.indexFragment, positionFragment);
+                } else {
+                    transaction.show(positionFragment);
+                }
+                break;
+
             case 2:
                 if (resumeFragment == null) {
                     resumeFragment = ResumeFragment.newInstance("简历", "");
@@ -89,6 +100,9 @@ public class IndexActivity extends AppCompatActivity implements BottomNavigation
     private void hideFragment(FragmentTransaction transaction) {
         if (indexFragment != null) {
             transaction.hide(indexFragment);
+        }
+        if (positionFragment != null) {
+            transaction.hide(positionFragment);
         }
         if (resumeFragment != null) {
             transaction.hide(resumeFragment);

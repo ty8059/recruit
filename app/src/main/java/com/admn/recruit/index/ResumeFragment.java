@@ -1,6 +1,7 @@
 package com.admn.recruit.index;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,15 +10,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.admn.recruit.R;
-import com.admn.recruit.basicInfo.BasicInfoActivity;
 import com.admn.recruit.eduexp.EduExpActivity;
+import com.admn.recruit.model.Resume;
 import com.admn.recruit.target.TargetActivity;
 import com.admn.recruit.workexp.WorkExpActivity;
 
+import java.util.List;
 
-public class ResumeFragment extends Fragment {
+
+public class ResumeFragment extends Fragment implements ResumeView {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -27,6 +31,7 @@ public class ResumeFragment extends Fragment {
     private TextView btn_edu_exp;
     private TextView btn_target;
 
+    private ResumePresenter resumePresenter;
 
     public ResumeFragment() {}
 
@@ -38,7 +43,6 @@ public class ResumeFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
 
 
     @Override
@@ -57,11 +61,15 @@ public class ResumeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        resumePresenter = new ResumePresenter(this);
         // 点击事件
         btn_basic_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                jumpActivity(BasicInfoActivity.class);
+                SharedPreferences userSetting = getActivity().getSharedPreferences("user", 0);
+                Integer userId = userSetting.getInt("userId",0);
+                resumePresenter.getResume(userId);
+//                jumpActivity(BasicInfoActivity.class);
             }
         });
 
@@ -104,10 +112,15 @@ public class ResumeFragment extends Fragment {
     }
 
 
+    @Override
+    public void showMsg(String msg) {
+        Toast.makeText(getActivity(),msg, Toast.LENGTH_SHORT).show();
+    }
 
-
-
-
+    @Override
+    public void showResumeList(List<Resume> resumeList) {
+        Toast.makeText(getActivity(), resumeList.get(0).getPosition(), Toast.LENGTH_SHORT).show();
+    }
 }
 
 
