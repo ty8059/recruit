@@ -10,7 +10,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -52,7 +51,7 @@ public class ResumePresenter {
                         Resume resume = gson.fromJson(bean, Resume.class);//解析
                         list.add(resume);
                     }
-                    resumeView.showResumeList(list);
+                    resumeView.jumpToBasicInfo(list.get(0));
                 } else {
                     resumeView.showMsg(resultEntity.getMsg());
                 }
