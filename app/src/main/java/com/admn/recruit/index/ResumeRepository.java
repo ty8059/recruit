@@ -9,7 +9,10 @@ import retrofit2.http.Query;
 public interface ResumeRepository {
 
     @POST("/resume/addResume/")
-    Call<ResultEntity> addResume(@Query("username") String username, @Query("password") String password);
+    Call<ResultEntity> addResume(@Query("userId") Integer userId, @Query("realName") String realName,
+                                 @Query("sex") String sex, @Query("birthday") String birthday,
+                                 @Query("userPhone") String userPhone, @Query("address") String address,
+                                 @Query("marriage") String marriage);
 
     @POST("/resume/getResumeByUserId")
     Call<ResultEntity> getResumeByUserId(@Query("userId") Integer userId);

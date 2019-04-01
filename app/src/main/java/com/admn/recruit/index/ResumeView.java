@@ -9,4 +9,6 @@ public interface ResumeView {
     void showMsg(String msg);
 
     void jumpToBasicInfo(Resume resume);
+
+    void jumpToTarget(Resume resume);
 }

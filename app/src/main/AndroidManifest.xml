@@ -26,7 +26,7 @@
         <activity android:name=".workexp.WorkExpEditActivity" />
         <activity android:name=".workexp.WorkExpActivity" />
         <activity android:name=".index.IndexActivity" />
-        <activity android:name=".basicInfo.BasicInfoActivity" />
+        <activity android:name=".basicinfo.BasicInfoActivity" />
         <activity
             android:name=".setup.SetupActivity"
             android:theme="@style/AppTheme.NoActionBar" />

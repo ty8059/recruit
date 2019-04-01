@@ -13,11 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.admn.recruit.R;
-import com.admn.recruit.basicInfo.BasicInfoActivity;
-import com.admn.recruit.eduexp.EduExpActivity;
+import com.admn.recruit.basicinfo.BasicInfoActivity;
 import com.admn.recruit.model.Resume;
 import com.admn.recruit.target.TargetActivity;
-import com.admn.recruit.workexp.WorkExpActivity;
 import com.google.gson.Gson;
 
 
@@ -69,7 +67,7 @@ public class ResumeFragment extends Fragment implements ResumeView {
             public void onClick(View v) {
                 SharedPreferences userSetting = getActivity().getSharedPreferences("user", 0);
                 Integer userId = userSetting.getInt("userId",0);
-                resumePresenter.getResume(userId);
+                resumePresenter.getResume(userId, 0);
             }
         });
 
@@ -90,7 +88,9 @@ public class ResumeFragment extends Fragment implements ResumeView {
         btn_target.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                SharedPreferences userSetting = getActivity().getSharedPreferences("user", 0);
+                Integer userId = userSetting.getInt("userId",0);
+                resumePresenter.getResume(userId, 3);
             }
         });
 
@@ -106,9 +106,22 @@ public class ResumeFragment extends Fragment implements ResumeView {
     @Override
     public void jumpToBasicInfo(Resume resume) {
         Intent intent = new Intent(getActivity(), BasicInfoActivity.class);
-        Gson gson = new Gson();
-        String resumeJson = gson.toJson(resume);
-        intent.putExtra("resumeJson", resumeJson);
+        if (resume != null) {
+            Gson gson = new Gson();
+            String resumeJson = gson.toJson(resume);
+            intent.putExtra("resumeJson", resumeJson);
+        }
+        startActivity(intent);
+    }
+
+    @Override
+    public void jumpToTarget(Resume resume) {
+        Intent intent = new Intent(getActivity(), TargetActivity.class);
+        if (resume != null) {
+            Gson gson = new Gson();
+            String resumeJson = gson.toJson(resume);
+            intent.putExtra("resumeJson", resumeJson);
+        }
         startActivity(intent);
     }
 
