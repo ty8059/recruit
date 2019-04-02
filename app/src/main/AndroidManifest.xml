@@ -14,23 +14,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".positiondetails.PositionDetailsActivity"></activity>
-        <activity android:name=".register.RegisterActivity" />
-        <activity android:name=".invitation.InvitationActivity" />
-        <activity android:name=".applicationrecord.ApplicationRecordActivity" />
-        <activity android:name=".remind.RemindActivity" />
-        <activity android:name=".aboutus.AboutUsActivity" />
-        <activity android:name=".target.TargetActivity" />
-        <activity android:name=".eduexp.EduExpEditActivity" />
-        <activity android:name=".eduexp.EduExpActivity" />
+        <activity android:name=".activity.PositionDetailsActivity"></activity>
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.InvitationActivity" />
+        <activity android:name=".activity.ApplicationRecordActivity" />
+        <activity android:name=".activity.RemindActivity" />
+        <activity android:name=".activity.AboutUsActivity" />
+        <activity android:name=".activity.TargetActivity" />
+        <activity android:name=".activity.EduExpEditActivity" />
+        <activity android:name=".activity.EduExpActivity" />
         <activity android:name=".workexp.WorkExpEditActivity" />
         <activity android:name=".workexp.WorkExpActivity" />
-        <activity android:name=".index.IndexActivity" />
-        <activity android:name=".basicinfo.BasicInfoActivity" />
+        <activity android:name=".activity.IndexActivity" />
+        <activity android:name=".activity.BasicInfoActivity" />
         <activity
-            android:name=".setup.SetupActivity"
+            android:name=".activity.SetupActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".login.LoginActivity">
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
