@@ -21,7 +21,7 @@ public class BasicInfoPresenter {
     public void editResume(Resume resume) {
         RetrofitUtil retrofitUtil = RetrofitUtil.getInstance();
         ResumeRepository resumeService = retrofitUtil.createApi(ResumeRepository.class);
-        Call<ResultEntity> call = resumeService.addResume(resume.getUserId(), resume.getRealName(), resume.getSex(), resume.getBirthday(),
+        Call<ResultEntity> call = resumeService.editResume(resume.getUserId(), resume.getRealName(), resume.getSex(), resume.getBirthday(),
                 resume.getUserPhone(), resume.getAddress(), resume.getMarriage());
         call.enqueue(new Callback<ResultEntity>() {
             @Override
