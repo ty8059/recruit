@@ -10,7 +10,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -25,15 +24,7 @@ public class ResumePresenter {
         this.resumeView = resumeView;
     }
 
-
-    // TODO 添加简历功能未完成
-    public void addResume(Resume resume) {
-        RetrofitUtil retrofitUtil = RetrofitUtil.getInstance();
-        ResumeRepository resumeService = retrofitUtil.createApi(ResumeRepository.class);
-
-    }
-
-    public void getResume(Integer userId) {
+    public void getResume(Integer userId, final int jumpType) {
         RetrofitUtil retrofitUtil = RetrofitUtil.getInstance();
         ResumeRepository resumeService = retrofitUtil.createApi(ResumeRepository.class);
         Call<ResultEntity> call = resumeService.getResumeByUserId(userId);
@@ -52,7 +43,26 @@ public class ResumePresenter {
                         Resume resume = gson.fromJson(bean, Resume.class);//解析
                         list.add(resume);
                     }
-                    resumeView.showResumeList(list);
+                    if (list.size() == 0) {
+                        switch (jumpType) {
+                            case 0:
+                                resumeView.jumpToBasicInfo(null);
+                                break;
+                            case 3:
+                                resumeView.jumpToTarget( null);
+                                break;
+                        }
+
+                    } else {
+                        switch (jumpType){
+                            case 0:
+                                resumeView.jumpToBasicInfo(list.get(0));
+                                break;
+                            case 3:
+                                resumeView.jumpToTarget(list.get(0));
+                                break;
+                        }
+                    }
                 } else {
                     resumeView.showMsg(resultEntity.getMsg());
                 }

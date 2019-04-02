@@ -13,15 +13,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.admn.recruit.R;
-import com.admn.recruit.eduexp.EduExpActivity;
+import com.admn.recruit.basicinfo.BasicInfoActivity;
 import com.admn.recruit.model.Resume;
 import com.admn.recruit.target.TargetActivity;
-import com.admn.recruit.workexp.WorkExpActivity;
-
-import java.util.List;
+import com.google.gson.Gson;
 
 
 public class ResumeFragment extends Fragment implements ResumeView {
+
+    private final static String TAG = "ResumeFragment";
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -57,7 +57,6 @@ public class ResumeFragment extends Fragment implements ResumeView {
         return view;
     }
 
-
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -68,59 +67,70 @@ public class ResumeFragment extends Fragment implements ResumeView {
             public void onClick(View v) {
                 SharedPreferences userSetting = getActivity().getSharedPreferences("user", 0);
                 Integer userId = userSetting.getInt("userId",0);
-                resumePresenter.getResume(userId);
-//                jumpActivity(BasicInfoActivity.class);
+                resumePresenter.getResume(userId, 0);
             }
         });
 
         btn_work_exp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                jumpActivity(WorkExpActivity.class);
+
             }
         });
 
         btn_edu_exp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                jumpActivity(EduExpActivity.class);
+
             }
         });
 
         btn_target.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                jumpActivity(TargetActivity.class);
+                SharedPreferences userSetting = getActivity().getSharedPreferences("user", 0);
+                Integer userId = userSetting.getInt("userId",0);
+                resumePresenter.getResume(userId, 3);
             }
         });
 
     }
-
 
     private void initView() {
         btn_basic_info = view.findViewById(R.id.btn_basic_info);
         btn_work_exp = view.findViewById(R.id.btn_work_exp);
         btn_edu_exp = view.findViewById(R.id.btn_edu_exp);
         btn_target = view.findViewById(R.id.btn_target);
-
     }
 
-
-    public void jumpActivity(Class activity) {
-        Intent intent = new Intent(getActivity(), activity);
+    @Override
+    public void jumpToBasicInfo(Resume resume) {
+        Intent intent = new Intent(getActivity(), BasicInfoActivity.class);
+        if (resume != null) {
+            Gson gson = new Gson();
+            String resumeJson = gson.toJson(resume);
+            intent.putExtra("resumeJson", resumeJson);
+        }
         startActivity(intent);
     }
 
+    @Override
+    public void jumpToTarget(Resume resume) {
+        Intent intent = new Intent(getActivity(), TargetActivity.class);
+        if (resume != null) {
+            Gson gson = new Gson();
+            String resumeJson = gson.toJson(resume);
+            intent.putExtra("resumeJson", resumeJson);
+        }
+        startActivity(intent);
+    }
 
     @Override
     public void showMsg(String msg) {
         Toast.makeText(getActivity(),msg, Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void showResumeList(List<Resume> resumeList) {
-        Toast.makeText(getActivity(), resumeList.get(0).getPosition(), Toast.LENGTH_SHORT).show();
-    }
+
 }
 
 

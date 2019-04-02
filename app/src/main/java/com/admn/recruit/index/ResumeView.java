@@ -8,5 +8,7 @@ public interface ResumeView {
 
     void showMsg(String msg);
 
-    void showResumeList(List<Resume> resumeList);
+    void jumpToBasicInfo(Resume resume);
+
+    void jumpToTarget(Resume resume);
 }

@@ -4,8 +4,6 @@
     package="com.admn.recruit">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <dist:module dist:instant="true" />
 
@@ -28,7 +26,7 @@
         <activity android:name=".workexp.WorkExpEditActivity" />
         <activity android:name=".workexp.WorkExpActivity" />
         <activity android:name=".index.IndexActivity" />
-        <activity android:name=".basicInfo.BasicInfoActivity" />
+        <activity android:name=".basicinfo.BasicInfoActivity" />
         <activity
             android:name=".setup.SetupActivity"
             android:theme="@style/AppTheme.NoActionBar" />
