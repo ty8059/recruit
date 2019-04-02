@@ -1,4 +1,4 @@
-package com.admn.recruit.register;
+package com.admn.recruit.view;
 
 public interface RegisterView {
 

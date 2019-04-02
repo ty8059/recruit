@@ -37,20 +37,22 @@ public class PositionAdapter extends ArrayAdapter<Position> {
 
         // 设置textview
         if (record.getSalaryType().equals(Constants.SALARY_TYPE.MONTH)) {
-            viewHolder.positionSalary.setText(String.valueOf(record.getPositionSalary()) + " / 月");
+            viewHolder.positionSalary.setText(String.valueOf(record.getSalary()) + " / 月");
         } else {
-            viewHolder.positionSalary.setText(String.valueOf(record.getPositionSalary()) + " / 日");
+            viewHolder.positionSalary.setText(String.valueOf(record.getSalary()) + " / 日");
         }
 
 
-        if (record.getPositionWorkType().equals(Constants.WORK_TYPE.FULL_TIME)) {
-            viewHolder.positionWorkType.setText("全职");
-        }
-        else if (record.getPositionWorkType().equals(Constants.WORK_TYPE.PART_TIME)) {
-            viewHolder.positionWorkType.setText("兼职");
-        }
-        else {
-            viewHolder.positionWorkType.setText("实习");
+        switch (record.getWorkType()) {
+            case Constants.WORK_TYPE.FULL_TIME:
+                viewHolder.positionWorkType.setText("全职");
+                break;
+            case Constants.WORK_TYPE.PART_TIME:
+                viewHolder.positionWorkType.setText("兼职");
+                break;
+            default:
+                viewHolder.positionWorkType.setText("实习");
+                break;
         }
 
         viewHolder.positionName.setText(record.getPositionName());

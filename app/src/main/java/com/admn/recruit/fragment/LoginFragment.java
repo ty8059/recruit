@@ -85,28 +85,13 @@ public class LoginFragment extends Fragment implements LoginView {
 
     @Override
     public void showMsg(String msg) {
-        Toast.makeText(this.getActivity(), msg, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void hiddenLoading() {
-
+        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void jumpActivity() {
         Intent intent = new Intent(getActivity(), IndexActivity.class);
         startActivity(intent);
-    }
-
-    @Override
-    public boolean back() {
-        return false;
     }
 
     @Override

@@ -9,8 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.admn.recruit.R;
-import com.admn.recruit.register.RegisterPresenter;
-import com.admn.recruit.register.RegisterView;
+import com.admn.recruit.presenter.RegisterPresenter;
+import com.admn.recruit.view.RegisterView;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterView {
 

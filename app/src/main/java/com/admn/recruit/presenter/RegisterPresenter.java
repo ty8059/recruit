@@ -1,7 +1,9 @@
-package com.admn.recruit.register;
+package com.admn.recruit.presenter;
 
 import com.admn.recruit.model.ResultEntity;
 import com.admn.recruit.model.User;
+import com.admn.recruit.dao.RegisterRepository;
+import com.admn.recruit.view.RegisterView;
 import com.admn.recruit.util.RetrofitUtil;
 import com.google.gson.Gson;
 

@@ -1,22 +1,36 @@
 package com.admn.recruit.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 public class Position implements Serializable {
+    private Integer positionId;
 
     private String positionName;
 
-    private Long positionSalary;
+    private String workType;
 
-    /**
-     * 00=全职 01=兼职 02=实习
-     */
-    private String positionWorkType;
+    private BigDecimal salary;
 
-    /**
-     * 00=月薪 01=日薪
-     */
     private String salaryType;
+
+    private String eduRequirement;
+
+    private String workRequirement;
+
+    private String workArea;
+
+    private String workDescription;
+
+    private static final long serialVersionUID = 1L;
+
+    public Integer getPositionId() {
+        return positionId;
+    }
+
+    public void setPositionId(Integer positionId) {
+        this.positionId = positionId;
+    }
 
     public String getPositionName() {
         return positionName;
@@ -26,22 +40,21 @@ public class Position implements Serializable {
         this.positionName = positionName;
     }
 
-    public Long getPositionSalary() {
-        return positionSalary;
+    public String getWorkType() {
+        return workType;
     }
 
-    public void setPositionSalary(Long positionSalary) {
-        this.positionSalary = positionSalary;
+    public void setWorkType(String workType) {
+        this.workType = workType;
     }
 
-    public String getPositionWorkType() {
-        return positionWorkType;
+    public BigDecimal getSalary() {
+        return salary;
     }
 
-    public void setPositionWorkType(String positionWorkType) {
-        this.positionWorkType = positionWorkType;
+    public void setSalary(BigDecimal salary) {
+        this.salary = salary;
     }
-
 
     public String getSalaryType() {
         return salaryType;
@@ -51,13 +64,35 @@ public class Position implements Serializable {
         this.salaryType = salaryType;
     }
 
-    @Override
-    public String toString() {
-        return "ApplicationRecord{" +
-                "positionName='" + positionName + '\'' +
-                ", positionSalary=" + positionSalary +
-                ", positionWorkType='" + positionWorkType + '\'' +
-                ", salaryType='" + salaryType + '\'' +
-                '}';
+    public String getEduRequirement() {
+        return eduRequirement;
+    }
+
+    public void setEduRequirement(String eduRequirement) {
+        this.eduRequirement = eduRequirement;
+    }
+
+    public String getWorkRequirement() {
+        return workRequirement;
+    }
+
+    public void setWorkRequirement(String workRequirement) {
+        this.workRequirement = workRequirement;
+    }
+
+    public String getWorkArea() {
+        return workArea;
+    }
+
+    public void setWorkArea(String workArea) {
+        this.workArea = workArea;
+    }
+
+    public String getWorkDescription() {
+        return workDescription;
+    }
+
+    public void setWorkDescription(String workDescription) {
+        this.workDescription = workDescription;
     }
 }
