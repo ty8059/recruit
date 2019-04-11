@@ -19,9 +19,9 @@ import android.widget.Toast;
 import com.admn.recruit.R;
 import com.admn.recruit.activity.AboutUsActivity;
 import com.admn.recruit.activity.ApplicationRecordActivity;
-import com.admn.recruit.view.IndexView;
 import com.admn.recruit.activity.InvitationActivity;
 import com.admn.recruit.activity.RemindActivity;
+import com.admn.recruit.view.IndexView;
 
 public class IndexFragment extends Fragment implements IndexView, View.OnClickListener {
 
@@ -119,32 +119,6 @@ public class IndexFragment extends Fragment implements IndexView, View.OnClickLi
             //Toast.makeText(getActivity(), "授权成功！", Toast.LENGTH_SHORT).show();
             Log.d("Upload_Permission", "checkPermission: 已经授权！");
         }
-    }
-
-
-    @Override
-    public void showMsg(String msg) {
-
-    }
-
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void hiddenLoading() {
-
-    }
-
-    @Override
-    public void jumpActivity() {
-
-    }
-
-    @Override
-    public boolean back() {
-        return false;
     }
 
     @Override

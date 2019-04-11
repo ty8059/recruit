@@ -1,8 +1,6 @@
 package com.admn.recruit.view;
 
-import com.admn.recruit.view.BaseView;
-
-public interface IndexView extends BaseView {
+public interface IndexView {
     void jumpToApplicationRecordActivity();
     void jumpToInvitationActivity();
     void jumpToRemindActivity();
