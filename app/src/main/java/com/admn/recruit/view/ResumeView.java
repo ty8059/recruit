@@ -10,5 +10,9 @@ public interface ResumeView {
 
     void jumpToBasicInfo(Resume resume);
 
+    void jumpToWorkExpEdit(Resume resume);
+
+    void jumpToEduExpEdit(Resume resume);
+
     void jumpToTarget(Resume resume);
 }

@@ -14,14 +14,18 @@ import android.widget.Toast;
 
 import com.admn.recruit.R;
 import com.admn.recruit.activity.BasicInfoActivity;
+import com.admn.recruit.activity.EduExpEditActivity;
 import com.admn.recruit.view.ResumeView;
 import com.admn.recruit.model.Resume;
 import com.admn.recruit.presenter.ResumePresenter;
 import com.admn.recruit.activity.TargetActivity;
+import com.admn.recruit.workexp.WorkExpEditActivity;
 import com.google.gson.Gson;
 
+import retrofit2.http.Query;
 
-public class ResumeFragment extends Fragment implements ResumeView {
+
+public class ResumeFragment extends Fragment implements ResumeView, View.OnClickListener {
 
     private final static String TAG = "ResumeFragment";
 
@@ -64,37 +68,10 @@ public class ResumeFragment extends Fragment implements ResumeView {
         super.onViewCreated(view, savedInstanceState);
         resumePresenter = new ResumePresenter(this);
         // 点击事件
-        btn_basic_info.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences userSetting = getActivity().getSharedPreferences("user", 0);
-                Integer userId = userSetting.getInt("userId",0);
-                resumePresenter.getResume(userId, 0);
-            }
-        });
-
-        btn_work_exp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        btn_edu_exp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        btn_target.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences userSetting = getActivity().getSharedPreferences("user", 0);
-                Integer userId = userSetting.getInt("userId",0);
-                resumePresenter.getResume(userId, 3);
-            }
-        });
+        btn_basic_info.setOnClickListener(this);
+        btn_work_exp.setOnClickListener(this);
+        btn_edu_exp.setOnClickListener(this);
+        btn_target.setOnClickListener(this);
 
     }
 
@@ -108,6 +85,28 @@ public class ResumeFragment extends Fragment implements ResumeView {
     @Override
     public void jumpToBasicInfo(Resume resume) {
         Intent intent = new Intent(getActivity(), BasicInfoActivity.class);
+        if (resume != null) {
+            Gson gson = new Gson();
+            String resumeJson = gson.toJson(resume);
+            intent.putExtra("resumeJson", resumeJson);
+        }
+        startActivity(intent);
+    }
+
+    @Override
+    public void jumpToWorkExpEdit(Resume resume) {
+        Intent intent = new Intent(getActivity(), WorkExpEditActivity.class);
+        if (resume != null) {
+            Gson gson = new Gson();
+            String resumeJson = gson.toJson(resume);
+            intent.putExtra("resumeJson", resumeJson);
+        }
+        startActivity(intent);
+    }
+
+    @Override
+    public void jumpToEduExpEdit(Resume resume) {
+        Intent intent = new Intent(getActivity(), EduExpEditActivity.class);
         if (resume != null) {
             Gson gson = new Gson();
             String resumeJson = gson.toJson(resume);
@@ -133,6 +132,26 @@ public class ResumeFragment extends Fragment implements ResumeView {
     }
 
 
+    @Override
+    public void onClick(View view) {
+        SharedPreferences userSetting = getActivity().getSharedPreferences("user", 0);
+        Integer userId = userSetting.getInt("userId",0);
+        switch (view.getId()) {
+            case  R.id.btn_basic_info:
+                resumePresenter.getResume(userId, 0);
+                break;
+            case R.id.btn_work_exp:
+                resumePresenter.getResume(userId, 1);
+                break;
+            case R.id.btn_edu_exp:
+                resumePresenter.getResume(userId, 2);
+                break;
+            case R.id.btn_target:
+                resumePresenter.getResume(userId, 3);
+                break;
+            default: break;
+        }
+    }
 }
 
 

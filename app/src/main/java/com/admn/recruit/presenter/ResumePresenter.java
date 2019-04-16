@@ -50,6 +50,12 @@ public class ResumePresenter {
                             case 0:
                                 resumeView.jumpToBasicInfo(null);
                                 break;
+                            case 1:
+                                resumeView.jumpToWorkExpEdit(null);
+                                break;
+                            case 2:
+                                resumeView.jumpToEduExpEdit(null);
+                                break;
                             case 3:
                                 resumeView.jumpToTarget( null);
                                 break;
@@ -59,6 +65,12 @@ public class ResumePresenter {
                         switch (jumpType){
                             case 0:
                                 resumeView.jumpToBasicInfo(list.get(0));
+                                break;
+                            case 1:
+                                resumeView.jumpToWorkExpEdit(list.get(0));
+                                break;
+                            case 2:
+                                resumeView.jumpToEduExpEdit(list.get(0));
                                 break;
                             case 3:
                                 resumeView.jumpToTarget(list.get(0));
