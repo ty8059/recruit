@@ -162,7 +162,7 @@ public class BasicInfoActivity extends AppCompatActivity implements BasicInfoVie
                 resume.setUserPhone(et_tel.getText().toString());
                 resume.setReserved1(et_email.getText().toString());
                 resume.setAddress(et_address.getText().toString());
-                basicInfoPresenter.editResume(resume);
+                basicInfoPresenter.editBasicInfo(resume);
                 break;
             case R.id.btn_set_birthday:
                 dp_birthday.setVisibility(View.VISIBLE);

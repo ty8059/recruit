@@ -19,10 +19,10 @@ public class BasicInfoPresenter {
         this.basicInfoView = basicInfoView;
     }
 
-    public void editResume(Resume resume) {
+    public void editBasicInfo(Resume resume) {
         RetrofitUtil retrofitUtil = RetrofitUtil.getInstance();
         ResumeRepository resumeService = retrofitUtil.createApi(ResumeRepository.class);
-        Call<ResultEntity> call = resumeService.editResume(resume.getUserId(), resume.getRealName(), resume.getSex(), resume.getBirthday(),
+        Call<ResultEntity> call = resumeService.editBasicInfo(resume.getUserId(), resume.getRealName(), resume.getSex(), resume.getBirthday(),
                 resume.getUserPhone(), resume.getAddress(), resume.getMarriage(), resume.getReserved1());
         call.enqueue(new Callback<ResultEntity>() {
             @Override
@@ -30,11 +30,7 @@ public class BasicInfoPresenter {
                 Gson gson = new Gson();
                 String responseStr = gson.toJson(response.body());
                 ResultEntity resultEntity = gson.fromJson(responseStr, ResultEntity.class);
-                if (resultEntity.isSuccess()) {
-                    basicInfoView.showMsg(resultEntity.getMsg());
-                } else {
-                    basicInfoView.showMsg(resultEntity.getMsg());
-                }
+                basicInfoView.showMsg(resultEntity.getMsg());
             }
 
             @Override
