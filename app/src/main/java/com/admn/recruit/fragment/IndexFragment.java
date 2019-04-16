@@ -192,7 +192,7 @@ public class IndexFragment extends Fragment implements IndexView, View.OnClickLi
         // 获取职位表
         this.positionList = positionList;
         List<Position> list = new ArrayList<>();
-        for (int i = positionList.size() - 1; i >= 0; i--) {
+        for (int i = 0; i < positionList.size(); i++) {
             if (positionList.get(i) != null) {
                 list.add(positionList.get(i));
             }

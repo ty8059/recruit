@@ -1,16 +1,22 @@
 package com.admn.recruit.activity;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.admn.recruit.R;
 import com.admn.recruit.model.Position;
+import com.admn.recruit.presenter.PositionDetailPresenter;
+import com.admn.recruit.view.PositionDetailView;
 import com.google.gson.Gson;
 
 import java.math.BigDecimal;
 
-public class PositionDetailsActivity extends AppCompatActivity {
+public class PositionDetailsActivity extends AppCompatActivity implements View.OnClickListener, PositionDetailView {
 
     private TextView positionName;
     private TextView positionType;
@@ -20,8 +26,11 @@ public class PositionDetailsActivity extends AppCompatActivity {
     private TextView workExpRequirement;
     private TextView workArea;
     private TextView workDesc;
+    private Button applyPositionBtn;
 
     private Position position;
+
+    private PositionDetailPresenter positionDetailPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +39,8 @@ public class PositionDetailsActivity extends AppCompatActivity {
         initView();
         getPositionJson();
         setPositionInfo();
+        positionDetailPresenter = new PositionDetailPresenter(this);
+        applyPositionBtn.setOnClickListener(this);
     }
 
     private void initView() {
@@ -41,6 +52,7 @@ public class PositionDetailsActivity extends AppCompatActivity {
         workExpRequirement = findViewById(R.id.tv_work_exp_requirement);
         workArea = findViewById(R.id.tv_work_area);
         workDesc = findViewById(R.id.tv_work_description);
+        applyPositionBtn = findViewById(R.id.btn_apply_position);
     }
 
     private void setPositionInfo() {
@@ -79,5 +91,22 @@ public class PositionDetailsActivity extends AppCompatActivity {
             Gson gson = new Gson();
             this.position =  gson.fromJson(positionJson, Position.class);
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_apply_position:
+                SharedPreferences userSetting = getSharedPreferences("user", 0);
+                Integer userId = userSetting.getInt("userId",0);
+                positionDetailPresenter.applyPosition(position.getPositionId(), userId);
+                break;
+            default: break;
+        }
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
     }
 }

@@ -30,10 +30,8 @@ public class LoginPresenter {
     public void doLogin(String username, String password) {
         RetrofitUtil retrofitUtil = RetrofitUtil.getInstance();
         LoginRepository loginService = retrofitUtil.createApi(LoginRepository.class);
-
         Call<ResultEntity> call = loginService.login(username, password);
         call.enqueue(new Callback<ResultEntity>() {
-
             @Override
             public void onResponse(Call<ResultEntity> call, Response<ResultEntity> response) {
                 boolean success = response.body().isSuccess();
@@ -42,8 +40,6 @@ public class LoginPresenter {
                 String data = new Gson().toJson(obj);
                 Gson gson = new Gson();
                 User user = gson.fromJson(data, User.class);
-                System.out.println("结果为:" + success + "\nmsg为:" + msg + "\nobj为:" + data);
-
                 if (success) {
                     // TODO 登录功能未屏蔽，待恢复
                     loginView.showMsg(msg);
