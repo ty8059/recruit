@@ -24,6 +24,7 @@ public class BasicInfoActivity extends AppCompatActivity implements BasicInfoVie
     private EditText et_sex;
     private EditText et_birthday;
     private EditText et_tel;
+    private EditText et_email;
     private EditText et_address;
     private EditText et_marital;
     private DatePicker dp_birthday;
@@ -49,6 +50,7 @@ public class BasicInfoActivity extends AppCompatActivity implements BasicInfoVie
         et_sex = findViewById(R.id.et_sex);
         et_birthday = findViewById(R.id.et_birthday);
         et_tel = findViewById(R.id.et_tel);
+        et_email = findViewById(R.id.et_email);
         et_address = findViewById(R.id.et_address);
         et_marital = findViewById(R.id.et_marital);
         dp_birthday = findViewById(R.id.dp_birthday);
@@ -67,6 +69,7 @@ public class BasicInfoActivity extends AppCompatActivity implements BasicInfoVie
             String time = resume.getBirthday().substring(0, 8);
             et_birthday.setText(DateUtil.changeDateToHtml(time));
             et_tel.setText(resume.getUserPhone());
+            et_email.setText(resume.getReserved1());
             et_address.setText(resume.getAddress());
 
             if (resume.getMarriage().equals("00")) {

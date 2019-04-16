@@ -13,17 +13,28 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.admn.recruit.R;
 import com.admn.recruit.activity.AboutUsActivity;
 import com.admn.recruit.activity.ApplicationRecordActivity;
 import com.admn.recruit.activity.InvitationActivity;
+import com.admn.recruit.activity.PositionDetailsActivity;
 import com.admn.recruit.activity.RemindActivity;
+import com.admn.recruit.adapter.PositionAdapter;
+import com.admn.recruit.model.Position;
+import com.admn.recruit.presenter.PositionPresenter;
 import com.admn.recruit.view.IndexView;
+import com.admn.recruit.view.PositionView;
+import com.google.gson.Gson;
 
-public class IndexFragment extends Fragment implements IndexView, View.OnClickListener {
+import java.util.ArrayList;
+import java.util.List;
+
+public class IndexFragment extends Fragment implements IndexView, View.OnClickListener, ListView.OnItemClickListener, PositionView {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -36,8 +47,11 @@ public class IndexFragment extends Fragment implements IndexView, View.OnClickLi
     private ImageButton btn_invitation;
     private ImageButton btn_remind;
     private ImageButton btn_about_us;
+    private ListView lv_newest_position;
     private View view;
 
+    private List<Position> positionList;
+    private PositionPresenter positionPresenter;
 
     public IndexFragment() {}
 
@@ -65,6 +79,8 @@ public class IndexFragment extends Fragment implements IndexView, View.OnClickLi
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_index, container, false);
         initView();
+        positionPresenter = new PositionPresenter(this);
+        positionPresenter.getPositionList();
         return view;
     }
 
@@ -76,7 +92,6 @@ public class IndexFragment extends Fragment implements IndexView, View.OnClickLi
         btn_invitation.setOnClickListener(this);
         btn_remind.setOnClickListener(this);
         btn_about_us.setOnClickListener(this);
-
     }
 
 
@@ -85,7 +100,7 @@ public class IndexFragment extends Fragment implements IndexView, View.OnClickLi
         btn_invitation = view.findViewById(R.id.btn_invitation);
         btn_remind = view.findViewById(R.id.btn_remind);
         btn_about_us = view.findViewById(R.id.btn_about_us);
-
+        lv_newest_position = view.findViewById(R.id.lv_newest_position);
     }
 
 
@@ -162,5 +177,36 @@ public class IndexFragment extends Fragment implements IndexView, View.OnClickLi
                 break;
             default:break;
         }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Position positionBean = positionList.get(i);
+        Intent intent = new Intent(getActivity(), PositionDetailsActivity.class);
+        intent.putExtra("positionJson", new Gson().toJson(positionBean));
+        startActivity(intent);
+    }
+
+    @Override
+    public void initPositionData(List<Position> positionList) {
+        // 获取职位表
+        this.positionList = positionList;
+        List<Position> list = new ArrayList<>();
+        for (int i = positionList.size() - 1; i >= 0; i--) {
+            if (positionList.get(i) != null) {
+                list.add(positionList.get(i));
+            }
+            if (list.size() == 3 || positionList.get(i) == null) {
+                break;
+            }
+        }
+        PositionAdapter positionAdapter = new PositionAdapter(getActivity(), R.layout.position_item, list);
+        lv_newest_position.setAdapter(positionAdapter);
+        lv_newest_position.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
     }
 }
