@@ -2,19 +2,14 @@ package com.admn.recruit.util;
 
 import android.util.Log;
 
-import com.admn.recruit.login.LoginBean;
 import com.admn.recruit.model.ResultEntity;
 import com.admn.recruit.model.SysCode;
-import com.admn.recruit.model.User;
 import com.google.gson.Gson;
 
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".index.IndexFragment">
+    tools:context=".fragment.IndexFragment">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -98,6 +98,29 @@
             android:text="关于我们"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_about_us" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="26dp"
+            android:text="最新岗位"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <ListView
+            android:id="@+id/lv_newest_position"
+            android:layout_width="match_parent"
+            android:layout_height="534dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
     </android.support.constraint.ConstraintLayout>
 
 </FrameLayout>
