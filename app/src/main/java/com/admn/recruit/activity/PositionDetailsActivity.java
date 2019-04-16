@@ -10,13 +10,14 @@ import android.widget.Toast;
 
 import com.admn.recruit.R;
 import com.admn.recruit.model.Position;
-import com.admn.recruit.presenter.PositionDetailPresenter;
-import com.admn.recruit.view.PositionDetailView;
+import com.admn.recruit.model.PositionApp;
+import com.admn.recruit.presenter.PositionAppPresenter;
+import com.admn.recruit.view.PositionAppView;
 import com.google.gson.Gson;
 
-import java.math.BigDecimal;
+import java.util.List;
 
-public class PositionDetailsActivity extends AppCompatActivity implements View.OnClickListener, PositionDetailView {
+public class PositionDetailsActivity extends AppCompatActivity implements View.OnClickListener, PositionAppView {
 
     private TextView positionName;
     private TextView positionType;
@@ -30,7 +31,7 @@ public class PositionDetailsActivity extends AppCompatActivity implements View.O
 
     private Position position;
 
-    private PositionDetailPresenter positionDetailPresenter;
+    private PositionAppPresenter positionAppPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class PositionDetailsActivity extends AppCompatActivity implements View.O
         initView();
         getPositionJson();
         setPositionInfo();
-        positionDetailPresenter = new PositionDetailPresenter(this);
+        positionAppPresenter = new PositionAppPresenter(this);
         applyPositionBtn.setOnClickListener(this);
     }
 
@@ -99,7 +100,7 @@ public class PositionDetailsActivity extends AppCompatActivity implements View.O
             case R.id.btn_apply_position:
                 SharedPreferences userSetting = getSharedPreferences("user", 0);
                 Integer userId = userSetting.getInt("userId",0);
-                positionDetailPresenter.applyPosition(position.getPositionId(), userId);
+                positionAppPresenter.applyPosition(position.getPositionId(), userId);
                 break;
             default: break;
         }
@@ -108,5 +109,10 @@ public class PositionDetailsActivity extends AppCompatActivity implements View.O
     @Override
     public void showMsg(String msg) {
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void initPositionAppList(List<PositionApp> positionAppList) {
+
     }
 }

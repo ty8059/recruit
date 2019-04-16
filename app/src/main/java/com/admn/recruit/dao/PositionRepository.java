@@ -11,6 +11,10 @@ public interface PositionRepository {
     @POST("/position/getPositionList/")
     Call<ResultEntity> getPositionList();
 
-    @POST("/positionApp/applyPosition")
+    @POST("/positionApp/applyPosition/")
     Call<ResultEntity> applyPosition(@Query("positionId") Integer positionId, @Query("userId") Integer userId);
+
+    @POST("/positionApp/getPositionAppByUserId/")
+    Call<ResultEntity> getPositionAppByUserId(@Query("userId") Integer userId);
+
 }

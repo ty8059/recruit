@@ -17,7 +17,7 @@
         <activity android:name=".activity.PositionDetailsActivity"></activity>
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.InvitationActivity" />
-        <activity android:name=".activity.ApplicationRecordActivity" />
+        <activity android:name=".activity.PositionAppActivity" />
         <activity android:name=".activity.RemindActivity" />
         <activity android:name=".activity.AboutUsActivity" />
         <activity android:name=".activity.TargetActivity" />
