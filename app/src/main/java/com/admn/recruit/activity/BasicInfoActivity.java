@@ -160,6 +160,7 @@ public class BasicInfoActivity extends AppCompatActivity implements BasicInfoVie
                 String date = et_birthday.getText().toString();
                 resume.setBirthday(DateUtil.changeDateToOracle(date) + "000000");
                 resume.setUserPhone(et_tel.getText().toString());
+                resume.setReserved1(et_email.getText().toString());
                 resume.setAddress(et_address.getText().toString());
                 basicInfoPresenter.editResume(resume);
                 break;

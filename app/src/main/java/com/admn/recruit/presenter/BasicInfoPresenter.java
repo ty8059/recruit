@@ -23,7 +23,7 @@ public class BasicInfoPresenter {
         RetrofitUtil retrofitUtil = RetrofitUtil.getInstance();
         ResumeRepository resumeService = retrofitUtil.createApi(ResumeRepository.class);
         Call<ResultEntity> call = resumeService.editResume(resume.getUserId(), resume.getRealName(), resume.getSex(), resume.getBirthday(),
-                resume.getUserPhone(), resume.getAddress(), resume.getMarriage());
+                resume.getUserPhone(), resume.getAddress(), resume.getMarriage(), resume.getReserved1());
         call.enqueue(new Callback<ResultEntity>() {
             @Override
             public void onResponse(Call<ResultEntity> call, Response<ResultEntity> response) {

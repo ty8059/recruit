@@ -12,7 +12,7 @@ public interface ResumeRepository {
     Call<ResultEntity> editResume(@Query("userId") Integer userId, @Query("realName") String realName,
                                  @Query("sex") String sex, @Query("birthday") String birthday,
                                  @Query("userPhone") String userPhone, @Query("address") String address,
-                                 @Query("marriage") String marriage);
+                                 @Query("marriage") String marriage, @Query("reserved1") String reserved1);
 
     @POST("/resume/getResumeByUserId")
     Call<ResultEntity> getResumeByUserId(@Query("userId") Integer userId);
