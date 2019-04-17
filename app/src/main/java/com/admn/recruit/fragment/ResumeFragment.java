@@ -19,10 +19,8 @@ import com.admn.recruit.view.ResumeView;
 import com.admn.recruit.model.Resume;
 import com.admn.recruit.presenter.ResumePresenter;
 import com.admn.recruit.activity.TargetActivity;
-import com.admn.recruit.workexp.WorkExpEditActivity;
+import com.admn.recruit.activity.WorkExpEditActivity;
 import com.google.gson.Gson;
-
-import retrofit2.http.Query;
 
 
 public class ResumeFragment extends Fragment implements ResumeView, View.OnClickListener {

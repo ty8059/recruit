@@ -22,8 +22,7 @@
         <activity android:name=".activity.AboutUsActivity" />
         <activity android:name=".activity.TargetActivity" />
         <activity android:name=".activity.EduExpEditActivity" />
-        <activity android:name=".workexp.WorkExpEditActivity" />
-        <activity android:name=".workexp.WorkExpActivity" />
+        <activity android:name=".activity.WorkExpEditActivity" />
         <activity android:name=".activity.IndexActivity" />
         <activity android:name=".activity.BasicInfoActivity" />
         <activity
