@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".workexp.WorkExpEditActivity">
+    tools:context=".activity.WorkExpEditActivity">
     <TextView
         android:id="@+id/tv_work_exp"
         android:layout_width="match_parent"
@@ -26,13 +26,14 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_work_exp" />
 
     <EditText
-        android:id="@+id/et_start_time"
+        android:id="@+id/et_work_start_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
         android:textSize="20dp"
+        android:focusable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,32 +46,33 @@
         android:text="结束时间"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_start_time" />
+        app:layout_constraintTop_toBottomOf="@+id/et_work_start_time" />
 
     <EditText
-        android:id="@+id/et_terminal_time"
+        android:id="@+id/et_work_end_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
         android:textSize="20dp"
+        android:focusable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_terminal_time" />
 
     <TextView
-        android:id="@+id/tv_company"
+        android:id="@+id/tv_work_company"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="公司"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_terminal_time" />
+        app:layout_constraintTop_toBottomOf="@+id/et_work_end_time" />
 
     <EditText
-        android:id="@+id/et_company"
+        android:id="@+id/et_work_company"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -80,19 +82,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_company" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_company" />
 
     <TextView
-        android:id="@+id/tv_job"
+        android:id="@+id/tv_work_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="职位"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_company" />
+        app:layout_constraintTop_toBottomOf="@+id/et_work_company" />
 
     <EditText
-        android:id="@+id/et_job"
+        android:id="@+id/et_work_position"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -102,19 +104,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_job" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_position" />
 
     <TextView
-        android:id="@+id/tv_description"
+        android:id="@+id/tv_work_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="描述"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_job" />
+        app:layout_constraintTop_toBottomOf="@+id/et_work_position" />
 
     <EditText
-        android:id="@+id/et_description"
+        android:id="@+id/et_work_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -122,6 +124,66 @@
         android:text=""
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_description" />
+
+    <Button
+        android:id="@+id/btn_set_work_start_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="设置时间"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_set_work_end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="设置时间"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_set_work_start_time" />
+
+    <Button
+        android:id="@+id/btn_submit_work_exp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="提交"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <DatePicker
+        android:id="@+id/dp_work_start_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#FFFF"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.754"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.445" />
+
+    <DatePicker
+        android:id="@+id/dp_work_end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#FFFF"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.754"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.445" />
 
 </android.support.constraint.ConstraintLayout>

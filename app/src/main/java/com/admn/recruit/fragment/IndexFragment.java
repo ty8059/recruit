@@ -21,7 +21,7 @@ import android.widget.Toast;
 import com.admn.recruit.R;
 import com.admn.recruit.activity.AboutUsActivity;
 import com.admn.recruit.activity.PositionAppActivity;
-import com.admn.recruit.activity.InvitationActivity;
+import com.admn.recruit.activity.InviteActivity;
 import com.admn.recruit.activity.PositionDetailsActivity;
 import com.admn.recruit.activity.RemindActivity;
 import com.admn.recruit.adapter.PositionAdapter;
@@ -144,7 +144,7 @@ public class IndexFragment extends Fragment implements IndexView, View.OnClickLi
 
     @Override
     public void jumpToInvitationActivity() {
-        Intent intent = new Intent(getActivity(), InvitationActivity.class);
+        Intent intent = new Intent(getActivity(), InviteActivity.class);
         startActivity(intent);
     }
 
