@@ -14,6 +14,11 @@ public interface ResumeRepository {
                                  @Query("userPhone") String userPhone, @Query("address") String address,
                                  @Query("marriage") String marriage, @Query("reserved1") String reserved1);
 
+    @POST("/resume/editTarget/")
+    Call<ResultEntity> editTarget(@Query("userId") Integer userId, @Query("area") String area,
+                                     @Query("position") String position, @Query("targetSalary") Long targetSalary,
+                                     @Query("arrivalTime") String arrivalTime);
+
     @POST("/resume/getResumeByUserId/")
     Call<ResultEntity> getResumeByUserId(@Query("userId") Integer userId);
 }
