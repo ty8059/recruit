@@ -61,9 +61,13 @@ public class TargetActivity extends AppCompatActivity implements View.OnClickLis
         }
         et_area.setText(resume.getArea());
         et_position.setText(resume.getPosition());
-        et_salary_target.setText(Long.toString(resume.getTargetSalary()));
-        String arrivalTime = resume.getArrivalTime().substring(0, 8);
-        et_arrival_time.setText(DateUtil.changeDateToHtml(arrivalTime));
+        if (resume.getTargetSalary() != null) {
+            et_salary_target.setText(Long.toString(resume.getTargetSalary()));
+        }
+        if (resume.getArrivalTime() != null) {
+            String arrivalTime = resume.getArrivalTime().substring(0, 8);
+            et_arrival_time.setText(DateUtil.changeDateToHtml(arrivalTime));
+        }
     }
 
     private void datePicker() {
